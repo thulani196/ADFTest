@@ -22,7 +22,7 @@
 				}
 			],
 			"transformations": [],
-			"script": "\nparameters{\n\t as string\n}\nsource(output(\n\t\tfirstname as string,\n\t\tlastname as string,\n\t\taddress as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> SourceDatabase\nSourceDatabase sink(input(\n\t\tfirstname as string,\n\t\tlastname as string,\n\t\taddress as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:true,\n\tupsertable:false,\n\tformat: 'table') ~> SinkDatabase"
+			"script": "\nparameters{\n\tdataflow1 as string\n}\nsource(output(\n\t\tfirstname as string,\n\t\tlastname as string,\n\t\taddress as string\n\t),\n\tallowSchemaDrift: false,\n\tvalidateSchema: false,\n\tisolationLevel: 'READ_UNCOMMITTED',\n\tformat: 'table') ~> SourceDatabase\nSourceDatabase sink(input(\n\t\tfirstname as string,\n\t\tlastname as string,\n\t\taddress as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdeletable:false,\n\tinsertable:true,\n\tupdateable:false,\n\tupsertable:false,\n\tformat: 'table') ~> SinkDatabase"
 		}
 	}
 }
